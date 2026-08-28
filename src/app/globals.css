@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-line;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-base text-ink font-body antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+  :focus-visible {
+    outline: 2px solid theme("colors.copper.DEFAULT");
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3
+           text-sm font-medium text-white transition-all duration-200 ease-smooth
+           hover:bg-copper active:scale-[0.98];
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-line
+           bg-white px-6 py-3 text-sm font-medium text-ink transition-all duration-200 ease-smooth
+           hover:border-ink active:scale-[0.98];
+  }
+  .card {
+    @apply rounded-2xl border border-line bg-surface shadow-card transition-shadow duration-300 ease-smooth
+           hover:shadow-cardHover;
+  }
+  .pin-row {
+    @apply flex items-center gap-1.5;
+  }
+  .pin-dot {
+    @apply h-1.5 w-1.5 rounded-[2px] bg-line;
+  }
+  .pin-dot-lit {
+    @apply bg-copper;
+  }
+}
